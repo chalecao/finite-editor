@@ -266,7 +266,7 @@ const actions = {
         return graph;
     },
     updateValue: (key) => (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         state[key] = e.target.value
     },
     updateSelect: (key, val) => (e) => {
@@ -302,15 +302,15 @@ const BoxView = ({ props, children }) => (
 const OperView = ({ props, children }) => (
     <div>
         <div class="type">
-            <input type="radio" onClick={actions.updateSelect("inputType", 'evt')} /> Event
-            <input type="radio" onClick={actions.updateSelect("inputType", '')} /> Action
+            <input type="radio" name="inputType" onClick={actions.updateSelect("inputType", 'evt')} /> Event
+            <input type="radio" name="inputType" onClick={actions.updateSelect("inputType", '')} /> Action
         </div>
         <div>
             <input type="text" onInput={actions.updateValue("inputName")} placeholder="名称" />
             <div class="type">
-                <input type="radio" onClick={actions.updateSelect("inputEntry", '1')} /> jsLoad
-                <input type="radio" onClick={actions.updateSelect("inputEntry", '2')} /> DomLoad
-                <input type="radio" onClick={actions.updateSelect("inputEntry", '3')} /> WindowLoad
+                <input type="radio" name="inputEntry" onClick={actions.updateSelect("inputEntry", '1')} /> jsLoad
+                <input type="radio" name="inputEntry" onClick={actions.updateSelect("inputEntry", '2')} /> DomLoad
+                <input type="radio" name="inputEntry" onClick={actions.updateSelect("inputEntry", '3')} /> WindowLoad
             </div>
             <input type="text" onInput={actions.updateValue("inputFrom")} placeholder="事件源" /><br />
             <input type="text" onInput={actions.updateValue("inputParam")} placeholder="参数" />

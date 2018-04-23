@@ -31879,7 +31879,7 @@ var actions$1 = {
     },
     updateValue: function updateValue(key) {
         return function (e) {
-            console.log(e.target.value);
+            // console.log(e.target.value);
             state$1[key] = e.target.value;
         };
     },
@@ -31926,9 +31926,9 @@ var OperView = function OperView(_ref2) {
         l(
             "div",
             { "class": "type" },
-            l("input", { type: "radio", onClick: actions$1.updateSelect("inputType", 'evt') }),
+            l("input", { type: "radio", name: "inputType", onClick: actions$1.updateSelect("inputType", 'evt') }),
             " Event",
-            l("input", { type: "radio", onClick: actions$1.updateSelect("inputType", '') }),
+            l("input", { type: "radio", name: "inputType", onClick: actions$1.updateSelect("inputType", '') }),
             " Action"
         ),
         l(
@@ -31938,11 +31938,11 @@ var OperView = function OperView(_ref2) {
             l(
                 "div",
                 { "class": "type" },
-                l("input", { type: "radio", onClick: actions$1.updateSelect("inputEntry", '1') }),
+                l("input", { type: "radio", name: "inputEntry", onClick: actions$1.updateSelect("inputEntry", '1') }),
                 " jsLoad",
-                l("input", { type: "radio", onClick: actions$1.updateSelect("inputEntry", '2') }),
+                l("input", { type: "radio", name: "inputEntry", onClick: actions$1.updateSelect("inputEntry", '2') }),
                 " DomLoad",
-                l("input", { type: "radio", onClick: actions$1.updateSelect("inputEntry", '3') }),
+                l("input", { type: "radio", name: "inputEntry", onClick: actions$1.updateSelect("inputEntry", '3') }),
                 " WindowLoad"
             ),
             l("input", { type: "text", onInput: actions$1.updateValue("inputFrom"), placeholder: "\u4E8B\u4EF6\u6E90" }),
