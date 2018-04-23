@@ -138,7 +138,11 @@ const actions = {
         });
     },
     addNode: () => {
-        document.querySelector("#app").className += document.querySelector("#app").className.replace(/dialog/g, '')
+        document.querySelector("#app").className = document.querySelector("#app").className
+            .replace(/dialog/g, '')
+            .replace(/\s+/g, ' ')
+            .replace(/^\s/g, '')
+            .replace(/\s$/g, '')
         state.cy.add({
             nodes: [{
                 data: {
@@ -246,8 +250,8 @@ const actions = {
         })
         edges.forEach(item => {
             if (item.data.source) {
-                if (item.classes == "evt") {
-                    let evt = graph.events.find(ev => ev.name == item.data.source)
+                let evt = graph.events.find(ev => ev.name == item.data.source)
+                if (evt) {
                     !evt.next && (evt.next = [])
                     evt.next.push(item.data.target)
                 } else {

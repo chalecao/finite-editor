@@ -31751,7 +31751,7 @@ var actions$1 = {
         });
     },
     addNode: function addNode() {
-        document.querySelector("#app").className += document.querySelector("#app").className.replace(/dialog/g, '');
+        document.querySelector("#app").className = document.querySelector("#app").className.replace(/dialog/g, '').replace(/\s+/g, ' ').replace(/^\s/g, '').replace(/\s$/g, '');
         state$1.cy.add({
             nodes: [{
                 data: {
@@ -31860,10 +31860,10 @@ var actions$1 = {
         });
         edges.forEach(function (item) {
             if (item.data.source) {
-                if (item.classes == "evt") {
-                    var evt = graph.events.find(function (ev) {
-                        return ev.name == item.data.source;
-                    });
+                var evt = graph.events.find(function (ev) {
+                    return ev.name == item.data.source;
+                });
+                if (evt) {
                     !evt.next && (evt.next = []);
                     evt.next.push(item.data.target);
                 } else {
