@@ -1,0 +1,126 @@
+{
+    "actions": [
+        "mainAction",
+        "navAction",
+        "categoryAction",
+        "fetchAction"
+    ],
+    "events": [
+        {
+            "entry": 2,
+            "name": "init",
+            "next": [
+                "mainAction_init"
+            ]
+        },
+        {
+            "name": "switchNav",
+            "from": "navAction",
+            "next": [
+                "navAction_getData"
+            ]
+        },
+        {
+            "name": "switchTab"
+        },
+        {
+            "name": "scroll"
+        }
+    ],
+    "mainAction": {
+        "init": {
+            "next": [
+                "mainAction_handleUrlParam",
+                "mainAction_handleHeader",
+                "mainAction_getSiteInfo"
+            ]
+        },
+        "getSiteInfo": {
+            "param": "mainState",
+            "next": [
+                "navAction_getData"
+            ]
+        },
+        "handleUrlParam": {
+            "param": "mainState"
+        },
+        "handleHeader": {}
+    },
+    "navAction": {
+        "getData": {
+            "param": [
+                "$",
+                "navState"
+            ],
+            "filter": "data.sceneList",
+            "next": [
+                "navAction_setCurrent"
+            ]
+        },
+        "setCurrent": {
+            "param": "navState",
+            "next": [
+                "navAction_renderData"
+            ]
+        },
+        "handleSwitch": {
+            "param": "navState",
+            "next": [
+                "navAction_getData"
+            ]
+        },
+        "renderData": {
+            "param": [
+                "navState",
+                "navAction",
+                "navView"
+            ],
+            "next": [
+                "navAction_initTabView",
+                "categoryAction_show"
+            ]
+        },
+        "initTabView": {
+            "param": [
+                "navState",
+                "navAction"
+            ]
+        }
+    },
+    "categoryAction": {
+        "show": {
+            "param": [
+                "$",
+                "categoryState",
+                "categoryAction"
+            ],
+            "next": [
+                "categoryAction_getData"
+            ]
+        },
+        "getData": {
+            "param": [
+                "categoryState"
+            ],
+            "next": [
+                "categoryAction_renderData"
+            ]
+        },
+        "renderData": {
+            "param": [
+                "categoryState",
+                "categoryAction",
+                "categoryView"
+            ],
+            "next": [
+                "categoryAction_initScroll"
+            ]
+        },
+        "initScroll": {
+            "param": [
+                "categoryState",
+                "categoryAction"
+            ]
+        }
+    }
+}

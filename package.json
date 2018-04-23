@@ -1,0 +1,31 @@
+{
+  "name": "finite-editor",
+  "version": "1.0.0",
+  "description": "finite state machine state editor for finite JSON config ",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp && rollup -c rollup.config.js",
+    "server": "min-http ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-less": "^4.0.0",
+    "lapp": "^1.0.4",
+    "min-http": "^1.0.3",
+    "rollup": "^0.56.5",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.2.0"
+  },
+  "dependencies": {
+    "cytoscape": "^3.2.11",
+    "cytoscape-cxtmenu": "^3.0.0",
+    "cytoscape-edgehandles": "^3.2.4"
+  }
+}

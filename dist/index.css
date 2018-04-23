@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+}
+#cy {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.overview {
+  position: absolute;
+  height: 100%;
+  width: 300%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.overview .dom-load,
+.overview .win-load {
+  position: absolute;
+  left: 300px;
+  height: 100%;
+  border-left: 1px solid #f4f4f4;
+  margin-top: 20px;
+}
+.overview .dom-load:after,
+.overview .win-load:after {
+  content: "DomContentLoad";
+  position: absolute;
+  left: -44px;
+  color: #ccc;
+  font-size: 12px;
+  margin-top: -20px;
+}
+.overview .win-load {
+  left: 70%;
+}
+.overview .evt-bg {
+  border-top: 1px solid #f4f4f4;
+  height: 100px;
+  margin-top: 20px;
+  position: relative;
+}
+.overview .evt-bg:after {
+  content: "Events:";
+  position: absolute;
+  left: 10px;
+  color: #ccc;
+}
+.overview .avs-bg {
+  border-top: 1px solid #f4f4f4;
+  position: relative;
+}
+.overview .avs-bg:after {
+  content: "Actions:";
+  position: absolute;
+  left: 10px;
+  color: #ccc;
+}
+.dialog:after {
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+#oper {
+  position: absolute;
+  z-index: 6;
+  top: 300px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  color: #fff;
+}
+#oper .type {
+  font-size: 12px;
+}
+#oper input[type='text'] {
+  width: 160px;
+}
